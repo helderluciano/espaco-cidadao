@@ -1,0 +1,20 @@
+<header>
+  <%= link_to logo, root_path %>
+  <nav class="round">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <% if signed_in? %>
+      <li><%= link_to "Usuários", users_path %></li>
+      <li><%= link_to "Perfil", current_user %></li>
+      <li><%= link_to "Configurações", edit_user_path(current_user) %></li>
+      <% end %>
+      <li><%= link_to "Tutorial", helps_path %></li>
+      <% if signed_in? %>
+      <li><%= link_to "Sair", signout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Login", signin_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+

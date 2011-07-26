@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1><%= @help.titulo %></h1>
+
+<hr>
+<br/>
+
+<span>  <h4><%= @help.descricao %></h4> </span><br />
+
+<% if signed_in? %>
+<% if current_user.admin? %>
+<%= link_to 'Editar', edit_help_path(@help) %> |
+<% end %>
+<% end %>
+<%= link_to 'Voltar', helps_path %>

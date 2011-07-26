@@ -1,0 +1,11 @@
+<%= form_for @coment do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <div class="field">
+    <%= f.label :content , "Comentário: "%>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Comentar" %>
+  </div>
+<% end %>

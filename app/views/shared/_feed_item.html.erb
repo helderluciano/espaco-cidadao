@@ -1,0 +1,22 @@
+<tr>
+  <td class="gravatar">
+    <%= link_to gravatar_for(feed_item.user), feed_item.user %>
+  </td>
+  <td class="micropost">
+    <span class="user">
+      <b>Autor : </b><%= link_to feed_item.user.name, feed_item.user %>
+    </span>
+    <br />
+    <span class="content"><%= link_to feed_item.titulo, feed_item %></span>
+    <span class="timestamp">
+      Postado <%= time_ago_in_words(feed_item.created_at) %> atrás.
+    </span>
+  </td>
+  <% if current_user?(feed_item.user) %>
+  <td>
+    <%= link_to "Excluir", feed_item, :method => :delete,
+                                     :confirm => "Tem certeza disso ?",
+                                     :title => feed_item.content %>
+  </td>
+  <% end %>
+</tr>

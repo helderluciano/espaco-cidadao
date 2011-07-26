@@ -1,0 +1,61 @@
+<h1>Cadastro de Usuário</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name , "Nome :"%><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf , "CPF :"%><br />
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :rg , "Identidade (RG) :"%><br />
+    <%= f.text_field :rg %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo , "Sexo :"%><br />
+    <%= f.select( :sexo , '<option value="Masculino"> Masculino </option><option value="Feminino"> Feminino </option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascimento , "Data de Nascimento :" %><br />
+    <%= f.date_select(:data_nascimento, :order => [:day, :month, :year], :start_year =>1930 , :end_year => 1993)%>
+  </div>
+  <div class="field">
+    <%= f.label :telefone , "Telefone : "%><br />
+    <%= f.text_field :telefone %>
+  </div>
+  <div class="field">
+    <%= f.label :estado , "Estado : "%><br />
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :cidade , "Cidade : "%><br />
+    <%= f.text_field :cidade %>
+  </div>
+  <div class="field">
+    <%= f.label :logradouro , "Logradouro : "%><br />
+    <%= f.text_field :logradouro %>
+  </div>
+  <div class="field">
+    <%= f.label :email , "E-mail : "%><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password , "Senha : " %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmação de Senha :" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo , "Tipo : "%><br />
+    <%= f.select( :tipo, '<option value="Cidadão"> Cidadão </option><option value="Governante"> Governante </option> ' )%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Cadastrar" %>
+  </div>
+<% end %>
+

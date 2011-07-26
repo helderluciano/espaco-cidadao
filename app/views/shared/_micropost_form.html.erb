@@ -1,0 +1,22 @@
+<%= form_for @micropost do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :tipo , "Tipo: "%>
+    <%= f.select( :tipo, '<option value="Elogio"> Elogio </option><option value="Sugestão"> Sugestão </option><option value="Reclamação"> Reclamação </option>') %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo , "Título: "%><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :governante , "Governante: "%><br />
+    <%= f.text_field :governante %>
+  </div>
+  <div class="field">
+    <%= f.label :content , "Descrição: "%>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Postar" %>
+  </div>
+<% end %>

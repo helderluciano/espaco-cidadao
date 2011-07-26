@@ -1,0 +1,29 @@
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Efetuar Postagem</h1>
+        <%= render 'shared/micropost_form' %>
+  	<%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+	<%= render 'shared/stats' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Bem-Vindo ao Espaço Cidadão</h1>
+
+  <p>
+    O Espaço Cidadão é um sistema online que permite aos cidadãos de
+    qualquer lugar do Brasil expor os problemas da sua cidade, elogiar ou
+    fazer uma sugestão aos governantes e debate-las
+    com outras pessoas, além disso, qualquer Governante pode comentar
+    as postagens e até mesmo efetuar postagens, para isso, basta se
+    cadastrar.
+  </p>
+
+  <%= link_to "Cadastre-se Agora!", signup_path, :class => "signup_button round" %>
+<% end %>
+    

@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  micropost_id: 1
+  content: MyString
+
+two:
+  micropost_id: 1
+  content: MyString

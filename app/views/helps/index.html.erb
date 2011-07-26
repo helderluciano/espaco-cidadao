@@ -1,0 +1,30 @@
+<h1>Tutorial</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @helps.each do |help| %>
+  <tr>
+    <td><%= link_to help.titulo, help %></td>
+    <% if signed_in? %>
+    <% if current_user.admin? %>
+    <td><%= link_to 'Exibir', help %></td>
+    <td><%= link_to 'Editar', edit_help_path(help) %></td>
+    <td><%= link_to 'Excluir', help, :confirm => 'Tem certeza disso?', :method => :delete %></td>
+    <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if signed_in? %>
+<% if current_user.admin? %>
+<%= link_to 'Cadastrar Novo Tutorial', new_help_path %>
+<% end %>
+<% end %>
