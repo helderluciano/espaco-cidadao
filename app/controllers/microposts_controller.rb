@@ -24,8 +24,16 @@ class MicropostsController < ApplicationController
 
   private
 
+    def authenticate
+      deny_access unless signed_in?
+    end
+
     def authorized_user
       @micropost = current_user.microposts.find_by_id(params[:id])
       redirect_to root_path if @micropost.nil?
     end
+
+    #def current_user=(user)
+    	#@current_user = user
+    #end
 end

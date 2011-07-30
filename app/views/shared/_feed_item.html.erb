@@ -18,5 +18,13 @@
                                      :confirm => "Tem certeza disso ?",
                                      :title => feed_item.content %>
   </td>
+  <% else %>
+  <% if current_user.admin? %>
+  <td>
+    <%= link_to "Excluir", feed_item, :method => :delete,
+                                     :confirm => "Tem certeza disso ?",
+                                     :title => feed_item.content %>
+  </td>
   <% end %>
+<% end %>
 </tr>

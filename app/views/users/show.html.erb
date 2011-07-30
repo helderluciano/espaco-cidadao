@@ -5,6 +5,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+	
       <%= render 'follow_form' if signed_in? %>
         <table class="microposts" summary="User microposts">
           <%= render @microposts %>
@@ -17,7 +18,8 @@
 	<strong>Perfil: </strong> <%= @user.tipo %><br />
 	<strong>Estado: </strong> <%= @user.estado %><br />
 	<strong>Cidade: </strong> <%= @user.cidade %><br />
-      	<strong>Postagens: </strong> <%= @user.microposts.count %>
+      	<strong>Postagens: </strong> <%= @user.microposts.count %><br />
+   	
       <%= render 'shared/stats' %>
     </td>
   </tr>

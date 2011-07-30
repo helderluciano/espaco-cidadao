@@ -12,5 +12,13 @@
                                      :confirm => "Tem certeza disso?",
                                      :title => micropost.content %>
   </td>
+  <% else %>
+  <% if current_user.admin? %>
+  <td>
+    <%= link_to "Excluir", micropost, :method => :delete,
+                                     :confirm => "Tem certeza disso?",
+                                     :title => micropost.content %>
+  </td>
   <% end %>
+<% end %>
 </tr>

@@ -4,7 +4,7 @@ class Micropost < ActiveRecord::Base
 	attr_accessible :titulo, :governante , :tipo
 
   	belongs_to :user
-	has_many :comentarios, :dependent => :destroy
+	has_many :comments , :dependent => :destroy
 
 
 	validates_presence_of :content, :length => { :maximum => 5000 }, :message => "- Campo Obrigatório."

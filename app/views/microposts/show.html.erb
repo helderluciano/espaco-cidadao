@@ -5,6 +5,8 @@
 
 <br><br>
 <hr>
+
+<h6>Tipo : <%= @microposts.tipo %></h6>
 <h6>Destinado ao Governante: <%= @microposts.governante %></h6>
 
 <table>
@@ -16,34 +18,15 @@
 </table>
 <hr>
 
-<h2> Comentários </h2>
-<hr>
 
-<%= @microposts.comentarios.each do |comentario| %>
-<p>
-<%= comentario.content %>
+<%= form_for [@microposts, @microposts.comments.build] do |f| %>
 
-</p>
-<hr>
+
+
+<%= f.label :content, "Descrição: " %><br />
+<%= f.text_area :content %><br />
+
+
+<%= f.submit "Comentar" %>
+
 <% end %>
-
-<h2>Adicione um comentário:</h2>
-<%= form_for([@microposts, @microposts.comentarios.build]) do |f| %>
-
-  <div class="field">
-    <%= f.label :micropost_id , "ID POSTAGEM" %>
-    <%= f.text_field :micropost_id %>
-  </div>
-  <div class="field">
-    Sei ID é | <%= f.label :user_id , current_user.id %> | Informe seu ID : <br />
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :content , "Comentários: " %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit " Comentar "%>
-  </div>
-<% end %>
-

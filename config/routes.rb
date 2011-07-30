@@ -2,19 +2,21 @@ Blog::Application.routes.draw do
 
   resources :helps
 
-  resources :microposts do
-	resources :comentarios
+  resources :users do
+	resources :microposts do
+		resources :comments
+  	end
   end
 
-  resources :coments
+  resources :microposts do
+	resources :comments
+  end
 
   resources :users do
     member do
       get :following, :followers
     end
   end
-
-  resources :users
 
   resources :sessions, :only => [:new, :create, :destroy]
 
@@ -29,7 +31,7 @@ Blog::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-
+  match '/microposts/id/comments', :to => 'comments#create'
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
@@ -40,13 +42,21 @@ Blog::Application.routes.draw do
 
   get "pages/contact"
 
-  
-  
-
-  
+ 
 
 
 end
+
+
+  
+  
+
+
+
+ 
+
+ 
+
 
  
   

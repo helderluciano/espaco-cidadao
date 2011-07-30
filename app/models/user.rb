@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
      attr_accessible :estado, :cidade, :logradouro, :tipo
 
 #RELACIONAMENTO
-     has_many :comentarios, :dependent => :destroy
-
+     
+     has_many :comments , :dependent => :destroy
 
      has_many :microposts, :dependent => :destroy
      has_many :relationships, :foreign_key => "follower_id",
@@ -31,23 +31,14 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }
 
 	validates_presence_of :email, :message => "- Campo Obrigatório."
-	#validates_length_of :name => {:within => 20..50}
 	validates_presence_of :name, :message => "- Campo Obrigatório." 
 	validates_presence_of :cpf, :message => "- Campo Obrigatório." 
 	validates_uniqueness_of :cpf, :message => "- CPF já cadastrado." 
-	#validates_length_of :cpf 
-	#validates_length_of :cpf, :minimum => {:within => 11}
 	validates_presence_of :rg , :message => "- Campo Obrigatório."
-	#validates_length_of :rg , :minimum => {:within => 7}
-	#validates_length_of :rg, :maximum => {:within => '20'} 
-	#validates_length_of :telefone, :minimum => {:within => 10}
- 	#validates_length_of :telefone, :maximum => {:within => '10'} 
 	validates_presence_of :logradouro, :message => "- Campo Obrigatório."
-	#validates_length_of :logradouro 
 	validates_presence_of :estado, :message => "- Campo Obrigatório."
 	validates_presence_of :cidade, :message => "- Campo Obrigatório."
-	#validates_length_of :estado, :minimum => {:within => 5} 
-	#validates_length_of :cidade, :minimum => {:within => '5'}
+
 
 #Métodos
 

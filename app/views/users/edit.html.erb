@@ -50,9 +50,17 @@
     <%= f.label :password_confirmation, "Confirmação de Senha :" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions">
+  
+
+<% if current_user.admin? %>
+  <%= f.label :admin , "Definir tipo de Perfil:" %>
+  <%= f.select(:admin ,'<option value="t"> Administrador </option><option value="f"> Cidadão </option><option value="f"> Governante </option>')%>
+<% end %>
+
+<div class="actions">
     <%= f.submit "Atualizar" %>
   </div>
+
 <% end %>
 
 <div>
