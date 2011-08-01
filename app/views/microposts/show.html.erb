@@ -11,19 +11,50 @@
 
 <table>
 <tr>
-<th><h6>Autor : <%= @microposts.user.name %></h6></th>
-<th><h6>Criado em : <%= @microposts.created_at %></h6></th>
+<th><h6>Autor : <%= link_to @microposts.user.name , @microposts.user %></h6></th>
+<th><h6>Criado em : <%= @microposts.created_at.day %> / <%= @microposts.created_at.month %> / <%= @microposts.created_at.year %></h6></th>
 <th><h6>ID POSTAGEM | <%= @microposts.id %> |</h6></th>
 </tr>
 </table>
+
+<br />
+
 <hr>
 
+<h2>Comentários</h2>
+<table>
+<tr>
+  <th> </th>
+<tr>
+<% @microposts.comments.each do |comentario| %>
+<tr>
+<td>
+    <% @users = User.find(comentario.user_id) %>
+    <%= gravatar_for @users, :size => 100 %> 
+</td>
+<td> 
+    <%= link_to @users.name , @users %> : 
+    <%= comentario.content %><br />
+    <span class="comment_date">
+    Comentado em <%= comentario.created_at.day %> / <%= comentario.created_at.month %> / <%= comentario.created_at.year %> 
+</span><br />
 
+</td>
+
+</tr>
+<% end %>
+</table>
+
+<hr>
+
+<h1> Faça seu Comentário </h1>
 <%= form_for [@microposts, @microposts.comments.build] do |f| %>
 
 
+<%= f.label :micropost_id,"Comentário referente ao ID: " %>
+<%= f.text_field :micropost_id %><br />
 
-<%= f.label :content, "Descrição: " %><br />
+<%= f.label :content, "Comentário:  " %><br />
 <%= f.text_area :content %><br />
 
 

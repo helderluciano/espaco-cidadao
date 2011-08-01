@@ -248,3 +248,9 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+span.comment_date {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}

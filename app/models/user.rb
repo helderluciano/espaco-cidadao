@@ -29,14 +29,21 @@ class User < ActiveRecord::Base
 	validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..40 }
-
+	validates_length_of :cpf, :minimum => 11, :message =>"- No minimo 11 caracteres."
+	validates_length_of :cpf, :maximum => 11, :message =>"- No máximo 11 caracteres."
 	validates_presence_of :email, :message => "- Campo Obrigatório."
+	validates_length_of :name , :minimum => 10, :message=>"- No minimo 10 caracteres."
 	validates_presence_of :name, :message => "- Campo Obrigatório." 
 	validates_presence_of :cpf, :message => "- Campo Obrigatório." 
-	validates_uniqueness_of :cpf, :message => "- CPF já cadastrado." 
+	validates_uniqueness_of :cpf, :message => "- CPF já cadastrado."
+	validates_length_of :rg, :minimum=> 7, :message=>"- No minimo 7 caracteres." 
+	validates_length_of :rg, :maximum=> 20, :message=> "- No máximo 20 caracteres."
 	validates_presence_of :rg , :message => "- Campo Obrigatório."
+	validates_length_of :logradouro, :minimum=> 6 , :message =>"- No minimo 6 caracteres."
 	validates_presence_of :logradouro, :message => "- Campo Obrigatório."
+	validates_length_of :estado, :minimum=> 6 , :message =>"- No minimo 6 caracteres."
 	validates_presence_of :estado, :message => "- Campo Obrigatório."
+	validates_length_of :cidade, :minimum=> 6 , :message =>"- No minimo 6 caracteres."
 	validates_presence_of :cidade, :message => "- Campo Obrigatório."
 
 

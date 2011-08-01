@@ -20,6 +20,7 @@ class MicropostsController < ApplicationController
 
   def show
     @microposts = Micropost.find(params[:id])
+    #@comments = @micropost.comments.user.find(params[:user])
   end
 
   private

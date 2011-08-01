@@ -6,7 +6,8 @@ class Micropost < ActiveRecord::Base
   	belongs_to :user
 	has_many :comments , :dependent => :destroy
 
-
+	validates_length_of :content, :minimum => 5, :message => "- No minimo 5 caracteres."
+	validates_length_of :governante , :minimum => 10 , :message => "- No minimo 10 caracteres."
 	validates_presence_of :content, :length => { :maximum => 5000 }, :message => "- Campo Obrigatório."
   	validates_presence_of :user_id
 	validates_presence_of :titulo, :length => { :maximum => 40}, :message => "- Campo Obrigatório."

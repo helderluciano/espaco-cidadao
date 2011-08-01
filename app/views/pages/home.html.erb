@@ -25,5 +25,29 @@
   </p>
 
   <%= link_to "Cadastre-se Agora!", signup_path, :class => "signup_button round" %>
+
+<br />
+
+<hr>
+
+<br />
+
+<h2> Postagens Recentes </h2>
+
+<table>
+<tr>
+ <th> </th>
+</tr>
+
+<% @microposts.each do |post|  %>
+
+<tr>
+  <td> <%= link_to post.tipo , post %> - 
+  <%= link_to post.titulo , post %> <span class="comment_date"> Publicado em <%= post.created_at.day %> / <%= post.created_at.month %> / <%= post.created_at.year %></span> </td>
+</tr>
+
+<% end %>
+</table>
+
 <% end %>
     

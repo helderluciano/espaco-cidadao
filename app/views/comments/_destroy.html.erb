@@ -1,0 +1,11 @@
+<% if current_user?(@users) %>
+  
+  <%= link_to 'Excluir', @comment_path ,:confirm => 'Tem certeza disso?', :method => :delete %>
+
+  <% else %>
+  <% if current_user.admin? %>
+
+  <%= link_to 'Excluir', @comment_path,:confirm => 'Tem certeza disso?', :method => :delete %>
+
+  <% end %>
+<% end %>

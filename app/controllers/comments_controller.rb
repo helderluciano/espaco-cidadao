@@ -5,9 +5,8 @@ class CommentsController < ApplicationController
 
  	def create
 	        @microposts = Micropost.find(params[:micropost_id])
-    		#@comments = @microposts.comments.create!(params[:comment])
-		#@comment = @microposts.comments.create!(params[:micropost_id])
-		@comment = @microposts.comments.create!(params[:comment])
+		@comment = current_user.comments.create!(params[:comment])
+		
 		redirect_to @microposts
  		
 	end
@@ -18,7 +17,8 @@ class CommentsController < ApplicationController
   	end
 
   	def show
-    		@comments = Comment.find(params[:id])
+    		#@comments = Comment.find(params[:id])
+		@micropost = Micropost.comments.find(params[:id])
  	end
 
 	private

@@ -13,6 +13,7 @@
                                      :title => micropost.content %>
   </td>
   <% else %>
+  <% if signed_in? %>
   <% if current_user.admin? %>
   <td>
     <%= link_to "Excluir", micropost, :method => :delete,
@@ -21,4 +22,6 @@
   </td>
   <% end %>
 <% end %>
+<% end %>
+
 </tr>
